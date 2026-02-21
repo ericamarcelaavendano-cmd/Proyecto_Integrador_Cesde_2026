@@ -1,7 +1,7 @@
 package co.edu.cesde.g.moodels;
 
 public class Person {
-    //Aplicaciòn de atributos.
+    //Incercion de atributos.
     long user_Id;
     String code;
     String documentNumber;
@@ -41,6 +41,6 @@ public class Person {
         LastName = lastName;
         this.status = status;
 
-        //Fin de codigo
+        //Fin de còdigo
     }
 }
