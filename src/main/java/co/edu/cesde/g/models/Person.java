@@ -41,6 +41,6 @@ public class Person {
         LastName = lastName;
         this.status = status;
 
-        //Fin de còdigo
+        //Aqui finaliza nuestro còdigo.
     }
 }
