@@ -34,7 +34,6 @@ public class Person {
     public void setCode(String code) { this.code = code; }
     public void setDocumentNumber(String documentNumber) { this.documentNumber = documentNumber; }
 
-    // ESTOS SON LOS QUE TE HACÍAN FALTA:
     public void setFirstName(String firstName) { this.firstName = firstName; }
     public void setLastName(String lastName) { this.lastName = lastName; }
 
