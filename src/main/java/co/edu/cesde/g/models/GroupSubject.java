@@ -1,15 +1,15 @@
 package co.edu.cesde.g.models;
 
-public class GroupSuject {
+public class GroupSubject {
     private Long groupSubjectId;
     private Long groupId;
     private Long subjectId;
     private Long teacherId;
 
-    public GroupSuject() {
+    public GroupSubject() {
     }
 
-    public GroupSuject(Long groupSubject, Long groupId, Long subjectId, Long teacherId) {
+    public GroupSubject(Long groupSubject, Long groupId, Long subjectId, Long teacherId) {
         this.groupSubjectId = groupSubject;
         this.groupId = groupId;
         this.subjectId = subjectId;
