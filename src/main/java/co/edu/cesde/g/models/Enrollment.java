@@ -7,10 +7,10 @@ public class Enrollment {
         private Long periodId;
         private Boolean status;
         private String enrolledAt;
-
+//Constructor vacio
         public Enrollment() {
         }
-
+//Constructor lleno
         public Enrollment(Long enrollmentId, Long studentId, Long groupId, Long periodId, Boolean status, String enrolledAt) {
             this.enrollmentId = enrollmentId;
             this.studentId = studentId;
@@ -19,7 +19,7 @@ public class Enrollment {
             this.status = status;
             this.enrolledAt = enrolledAt;
         }
-
+//getter
         public Long getEnrollmentId() {
             return enrollmentId;
         }
@@ -43,6 +43,8 @@ public class Enrollment {
         public String getEnrolledAt() {
             return enrolledAt;
         }
+
+        //setting
 
         public void setEnrollmentId(Long enrollmentId) {
             this.enrollmentId = enrollmentId;

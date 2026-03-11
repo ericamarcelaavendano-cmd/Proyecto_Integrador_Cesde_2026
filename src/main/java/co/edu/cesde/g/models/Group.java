@@ -6,10 +6,10 @@ public class Group {
     private Long programId;
     private Long periodId;
     private String shift;
-
+//constructor lleno
     public Group() {
     }
-
+//Constructor vacio
     public Group(Long groupId, String code, Long programId, Long periodId, String shift) {
         this.groupId = groupId;
         this.code = code;

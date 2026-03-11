@@ -6,10 +6,10 @@ public class Grade {
     private Long studentId;
     private Integer finalScore;
     private String observation;
-
+//constructor vacio
     public Grade() {
     }
-
+//Constructor lleno
     public Grade(Long gradeId, Long groupSubjectId, Long studentId, Integer finalScore, String observation) {
         this.gradeId = gradeId;
         this.groupSubjectId = groupSubjectId;

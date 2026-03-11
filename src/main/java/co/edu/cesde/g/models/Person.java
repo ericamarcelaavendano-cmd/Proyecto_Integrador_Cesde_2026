@@ -8,7 +8,7 @@ public class Person {
     private String lastName;
     private Boolean status;
 
-    // Constructor Vacío (¡Ya lo tenías, muy bien!)
+    // Constructor Vacío
     public Person() {}
 
     // Constructor con parámetros
