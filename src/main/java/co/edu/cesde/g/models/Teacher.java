@@ -1,30 +1,35 @@
 package co.edu.cesde.g.models;
 
 public class Teacher extends Person {
-    private String birthDate;
+    private long teacherId;
+    private String specialization;
 
     public Teacher() {
         super();
     }
 
-    public String getBirthDate() {
-        return birthDate;
-    }
-
-    public void setBirthDate(String birthDate) {
-        this.birthDate = birthDate;
-    }
-
-    //Aqui se genera el constructor
-    public Teacher(long userId, String code, String documentNumber, String firstName, String lastName, Boolean status, String birthDate) {
+    public Teacher(long userId, String code, String documentNumber, String firstName, String lastName, Boolean status, long teacherId) {
         super(userId, code, documentNumber, firstName, lastName, status);
-        this.birthDate = birthDate;
+        this.teacherId = teacherId;
     }
 
     @Override
+    public String getRole() {
+        return "TEACHER";
+    }
+
+    public long getTeacherId() {
+        return teacherId;
+    }
+
+    public void setTeacherId(long teacherId) {
+        this.teacherId = teacherId;
+    }
+
+    // El toString debe estar AQUÍ ADENTRO antes de la última llave
+    @Override
     public String toString() {
         return "Teacher = " + super.toString() +
-                ", birthDate = '" + birthDate + '\'';
-
+                ", TeacherId = " + teacherId;
     }
 }

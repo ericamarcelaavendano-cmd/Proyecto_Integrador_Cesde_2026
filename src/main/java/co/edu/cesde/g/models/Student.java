@@ -1,31 +1,27 @@
 package co.edu.cesde.g.models;
 
-public class Student extends Person{
+public class Student extends Person {
+    private long studentId;
     private String birthDate;
-     public  Student(){
-         //A qui se genera el constructor vacio
-         super();
-     }
-     //Aqui se genera constructor lleno
-    public Student(long userId, String code, String documentNumber, String firstName, String lastName, Boolean status, String birthDate) {
+
+    public Student() {
+        super();
+    }
+
+    // Constructor abierto.... aqui esta toda la informacion de Person y Student.
+    public Student(long userId, String code, String documentNumber, String firstName, String lastName, Boolean status, long studentId, String birthDate) {
+        // Super envía los datos a la clase abstracta Person
         super(userId, code, documentNumber, firstName, lastName, status);
+        this.studentId = studentId;
         this.birthDate = birthDate;
     }
 
-    //Aqui se genera los Seting y Geting
-    public String getBirthDate() {
-        return birthDate;
-    }
-
-
-    public void setBirthDate(String birthDate) {
-        this.birthDate = birthDate;
-    }
+    // Aqui se el contrato de la clase abstracta
     @Override
-    public String toString() {
-        return "Student = " + super.toString() +
-                ", birthDate = " + birthDate; // Concatenamos la variable real
+    public String getRole() {
+        return "STUDENT";
     }
 }
+
 
 
