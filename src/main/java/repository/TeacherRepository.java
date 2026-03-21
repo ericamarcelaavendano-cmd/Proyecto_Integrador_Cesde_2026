@@ -13,7 +13,7 @@ public interface TeacherRepository {
     boolean delete(long teacherId);
 
     //Actualizar teacher
-    boolean update(Teacher teacherupade);
+    boolean update(Teacher teacherupdate);
 
     boolean finById(long teacherId);
 

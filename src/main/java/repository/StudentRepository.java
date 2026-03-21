@@ -11,7 +11,7 @@ public interface StudentRepository {
     //Eliminar estudiante
     boolean delete(long studentId);
 
-    //Actualizar estudiante
+    //Actualizar estudiante, aqui se actualiza los estudiante
     boolean update(Student studentupdate);
 
     boolean finById(long studentId);
