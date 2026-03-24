@@ -1,14 +1,14 @@
 package co.edu.cesde.g.models;
 
 public class Teacher extends Person {
-    private long teacherId;
+    private Long teacherId;
     private String specialization;
 
     public Teacher() {
         super();
     }
 
-    public Teacher(long userId, String code, String documentNumber, String firstName, String lastName, Boolean status, long teacherId) {
+    public Teacher(Long userId, String code, String documentNumber, String firstName, String lastName, Boolean status, long teacherId) {
         super(userId, code, documentNumber, firstName, lastName, status);
         this.teacherId = teacherId;
     }
@@ -18,11 +18,11 @@ public class Teacher extends Person {
         return "TEACHER";
     }
 
-    public long getTeacherId() {
+    public Long getTeacherId() {
         return teacherId;
     }
 
-    public void setTeacherId(long teacherId) {
+    public void setTeacherId(Long teacherId) {
         this.teacherId = teacherId;
     }
 

@@ -9,19 +9,22 @@ public interface StudentRepository {
     Student create(Student student);
 
     //Eliminar estudiante
-    boolean delete(long studentId);
+    boolean delete(Long studentId);
 
     //Actualizar estudiante, aqui se actualiza los estudiante
     boolean update(Student studentupdate);
 
-    boolean finById(long studentId);
+    Student findById(Long studentId);
 
     //Tambien lo puedo buscar con el DocumenNumber
-    boolean finByDocumentNumber(String documentNumber);
+    Student findByDocumentNumber(String documentNumber);
 
     //Buscar todos los estudiantes
     List<Student> findAll();
 
-    boolean existById(long studentId);
+
+    boolean existsByDocumentNumber(String documentNumber);
+
+    int count();
 
 }

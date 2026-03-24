@@ -1,14 +1,13 @@
 package co.edu.cesde.g.models;
-
 public class Student extends Person {
-    private long studentId;
+    private Long studentId;
     private String birthDate;
 
     public Student() {
         super();
     }
 
-    public Student(long userId, String code, String documentNumber, String firstName, String lastName, Boolean status, long studentId, String birthDate) {
+    public Student(Long userId, String code, String documentNumber, String firstName, String lastName, Boolean status, long studentId, String birthDate) {
         super(userId, code, documentNumber, firstName, lastName, status);
         this.studentId = studentId;
         this.birthDate = birthDate;
@@ -19,11 +18,11 @@ public class Student extends Person {
         return "STUDENT";
     }
 
-    public long getStudentId() {
+    public Long getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(long studentId) {
+    public void setStudentId(Long studentId) {
         this.studentId = studentId;
     }
 
