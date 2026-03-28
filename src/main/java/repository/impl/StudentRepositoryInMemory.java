@@ -39,7 +39,7 @@ public class StudentRepositoryInMemory implements StudentRepository {
         return new ArrayList<>(students);
     }
 
-    //Metodo findBiId
+    //Metodo findById
     @Override
     public Student findById(Long studentId) {
         if (studentId == null) {
