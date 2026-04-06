@@ -1,10 +1,11 @@
-package repository;
+package service;
 
 import co.edu.cesde.g.models.Teacher;
 
 import java.util.List;
 
-public interface TeacherRepository {
+public interface TeacherService {
+
     //Crear Teacher
     Teacher create(Teacher teacher);
 
@@ -26,6 +27,4 @@ public interface TeacherRepository {
     Teacher findByDocumentNumber(String documentNumber);
 
     int count();
-
-
 }

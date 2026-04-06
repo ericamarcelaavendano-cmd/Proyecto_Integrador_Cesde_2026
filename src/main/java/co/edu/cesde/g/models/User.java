@@ -1,4 +1,5 @@
 package co.edu.cesde.g.models;
+import java.time.LocalDateTime;
 
 public class User {
     private Long userId;
@@ -6,12 +7,12 @@ public class User {
     private String email;
     private String passwordHash;
     private Boolean status;
-    private String createdAt;
+    private LocalDateTime createdAt;
 
     public User() {
     }
 
-    public User(Long userId, String username, String email, String passwordHash, Boolean status, String createdAt) {
+    public User(Long userId, String username, String email, String passwordHash, Boolean status, LocalDateTime createdAt) {
         this.userId = userId;
         this.username = username;
         this.email = email;
@@ -40,7 +41,7 @@ public class User {
         return status;
     }
 
-    public String getCreatedAt() {
+    public LocalDateTime getCreatedAt() {
         return createdAt;
     }
 
@@ -64,7 +65,7 @@ public class User {
         this.status = status;
     }
 
-    public void setCreatedAt(String createdAt) {
+    public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
     @Override
