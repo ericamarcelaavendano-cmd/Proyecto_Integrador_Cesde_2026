@@ -37,7 +37,7 @@ public class PeriodServiceImpl implements PeriodService {
             return false;
         return periodRepository.update(periodsUpdate);
     }
-
+//
     // Busca y retorna un periodo por su ID
     @Override
     public Period findById(Long periodId) {

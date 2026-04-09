@@ -1,84 +1,84 @@
 package co.edu.cesde.g.models;
 
+import java.time.LocalDateTime;
+
 public class Enrollment {
-        private Long enrollmentId;
-        private Long studentId;
-        private Long groupId;
-        private Long periodId;
-        private Boolean status;
-        private String enrolledAt;
-//Constructor vacio
-        public Enrollment() {
-        }
-//Constructor lleno
-        public Enrollment(Long enrollmentId, Long studentId, Long groupId, Long periodId, Boolean status, String enrolledAt) {
-            this.enrollmentId = enrollmentId;
-            this.studentId = studentId;
-            this.groupId = groupId;
-            this.periodId = periodId;
-            this.status = status;
-            this.enrolledAt = enrolledAt;
-        }
-//getter
-        public Long getEnrollmentId() {
-            return enrollmentId;
-        }
+    private Long enrollmentId;
+    private Long studentId;
+    private Long groupId;
+    private Long periodId;
+    private Boolean status;
+    private LocalDateTime enrolledAt;
 
-        public Long getStudentId() {
-            return studentId;
-        }
+    public Enrollment() {
+    }
 
-        public Long getGroupId() {
-            return groupId;
-        }
+    public Enrollment(Long enrollmentId, Long studentId, Long groupId, Long periodId, Boolean status, LocalDateTime enrolledAt) {
+        this.enrollmentId = enrollmentId;
+        this.studentId = studentId;
+        this.groupId = groupId;
+        this.periodId = periodId;
+        this.status = status;
+        this.enrolledAt = enrolledAt;
+    }
 
-        public Long getPeriodId() {
-            return periodId;
-        }
+    public Long getEnrollmentId() {
+        return enrollmentId;
+    }
 
-        public Boolean getStatus() {
-            return status;
-        }
+    public Long getStudentId() {
+        return studentId;
+    }
 
-        public String getEnrolledAt() {
-            return enrolledAt;
-        }
+    public Long getGroupId() {
+        return groupId;
+    }
 
-        //setting
+    public Long getPeriodId() {
+        return periodId;
+    }
 
-        public void setEnrollmentId(Long enrollmentId) {
-            this.enrollmentId = enrollmentId;
-        }
+    public Boolean getStatus() {
+        return status;
+    }
 
-        public void setStudentId(Long studentId) {
-            this.studentId = studentId;
-        }
+    public LocalDateTime getEnrolledAt() {
+        return enrolledAt;
+    }
 
-        public void setGroupId(Long groupId) {
-            this.groupId = groupId;
-        }
+    public void setEnrollmentId(Long enrollmentId) {
+        this.enrollmentId = enrollmentId;
+    }
 
-        public void setPeriodId(Long periodId) {
-            this.periodId = periodId;
-        }
+    public void setStudentId(Long studentId) {
+        this.studentId = studentId;
+    }
 
-        public void setStatus(Boolean status) {
-            this.status = status;
-        }
+    public void setGroupId(Long groupId) {
+        this.groupId = groupId;
+    }
 
-        public void setEnrolledAt(String enrolledAt) {
-            this.enrolledAt = enrolledAt;
-        }
-        @Override
-        public String toString() {
-            return "Enrollment{" +
-                    "enrollmentId=" + enrollmentId +
-                    ", studentId=" + studentId +
-                    ", groupId=" + groupId +
-                    ", periodId=" + periodId +
-                    ", status=" + status +
-                    ", enrolledAt='" + enrolledAt +
-                    '}';
-        }
+    public void setPeriodId(Long periodId) {
+        this.periodId = periodId;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
+    }
+
+    public void setEnrolledAt(LocalDateTime enrolledAt) {
+        this.enrolledAt = enrolledAt;
+    }
+
+    @Override
+    public String toString() {
+        return "Enrollment{" +
+                "enrollmentId=" + enrollmentId +
+                ", studentId=" + studentId +
+                ", groupId=" + groupId +
+                ", periodId=" + periodId +
+                ", status=" + status +
+                ", enrolledAt=" + enrolledAt +
+                '}';
+    }
 }
-

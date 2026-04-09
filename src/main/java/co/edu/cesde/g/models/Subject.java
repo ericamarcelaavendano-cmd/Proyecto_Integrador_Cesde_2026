@@ -1,5 +1,5 @@
 package co.edu.cesde.g.models;
-
+// aqui ponemos todos los atributos de la clase Subject
 public class Subject {
     private Long subjectId;
     private String code;
@@ -7,9 +7,10 @@ public class Subject {
     private Integer credits;
     private Long programId;
 
+    // Aqui ponemos el comstructor cerrado
     public Subject() {
     }
-
+// Aqui emppezamos con el constructor abierto
     public Subject(Long subjectId, String code, String name, Integer credits, Long programId) {
         this.subjectId = subjectId;
         this.code = code;
