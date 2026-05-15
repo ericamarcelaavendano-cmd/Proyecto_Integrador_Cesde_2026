@@ -33,11 +33,12 @@ public class UserServiceImpl implements UserService {
     // Metodo Actualizar (update)
     @Override
     public boolean update(User userupdate) {
-        if (isInvalidUser(userupdate) || userupdate.getUserId() == null)
+        if (userupdate == null || userupdate.getUserId() == null)
+            return false;
+        if (isInvalidUser(userupdate))
             return false;
         return userRepository.update(userupdate);
     }
-
     @Override
     public User findById(Long userId) {
         if (userId == null)
@@ -76,12 +77,15 @@ public class UserServiceImpl implements UserService {
         return userRepository.count();
     }
     //Metodo para validar si el user es invalido
-    private boolean isInvalidUser(User user){
+    private boolean isInvalidUser(User user) {
         return user == null
-                || user.getUserId() == null
                 || isBlank(user.getUsername())
                 || isBlank(user.getEmail())
-                || isBlank(user.getPasswordHash());
+                || isBlank(user.getPasswordHash())
+                || user.getUsername().length() < 3
+                || user.getPasswordHash().length() < 6
+                || !user.getEmail().contains("@")
+                || !user.getEmail().contains(".");
     }
     //Metodo para validar sib el texto esta vacio
     private boolean isBlank(String value){

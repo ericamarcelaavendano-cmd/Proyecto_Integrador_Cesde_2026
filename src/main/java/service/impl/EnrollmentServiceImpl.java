@@ -33,7 +33,9 @@ public class EnrollmentServiceImpl implements EnrollmentService {
 
     @Override
     public boolean update(Enrollment enrollmentUpdate) {
-        if (isInvalidEnrollment(enrollmentUpdate) || enrollmentUpdate.getEnrollmentId() == null)
+        if (enrollmentUpdate == null || enrollmentUpdate.getEnrollmentId() == null)
+            return false;
+        if (isInvalidEnrollment(enrollmentUpdate))
             return false;
         return enrollmentRepository.update(enrollmentUpdate);
     }

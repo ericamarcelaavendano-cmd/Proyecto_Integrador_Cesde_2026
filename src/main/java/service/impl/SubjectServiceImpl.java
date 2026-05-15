@@ -31,7 +31,9 @@ public class SubjectServiceImpl implements SubjectService {
 
     @Override
     public boolean update(Subject subjectUpdate) {
-        if (isInvalidSubject(subjectUpdate) || subjectUpdate.getSubjectId() == null)
+        if (subjectUpdate == null || subjectUpdate.getSubjectId() == null)
+            return false;
+        if (isInvalidSubject(subjectUpdate))
             return false;
         return subjectRepository.update(subjectUpdate);
     }
@@ -77,7 +79,11 @@ public class SubjectServiceImpl implements SubjectService {
                 || isBlank(subject.getCode())
                 || isBlank(subject.getName())
                 || subject.getCredits() == null
-                || subject.getProgramId() == null;
+                || subject.getProgramId() == null
+                || subject.getCode().length() < 2
+                || subject.getName().length() < 3
+                || subject.getCredits() <= 0
+                || subject.getCredits() > 20;
     }
 
     private boolean isBlank(String value) {

@@ -12,9 +12,9 @@ public class TeacherServiceImpl implements TeacherService {
 
     public TeacherServiceImpl(TeacherRepository teacherRepository) {
         this.teacherRepository = teacherRepository;
-
     }
 
+    // Metodo Crear
     @Override
     public Teacher create(Teacher teacher) {
         if (isInvalidTeacher(teacher) || teacherRepository.existsByDocumentNumber(teacher.getDocumentNumber()))
@@ -22,6 +22,7 @@ public class TeacherServiceImpl implements TeacherService {
         return teacherRepository.create(teacher);
     }
 
+    // Metodo Eliminar
     @Override
     public boolean delete(Long teacherId) {
         if (teacherId == null)
@@ -29,14 +30,17 @@ public class TeacherServiceImpl implements TeacherService {
         return teacherRepository.delete(teacherId);
     }
 
+    // Metodo Actualizar
     @Override
     public boolean update(Teacher teacherUpdate) {
-        if (isInvalidTeacher(teacherUpdate) || teacherUpdate.getTeacherId() == null)
+        if (teacherUpdate == null || teacherUpdate.getTeacherId() == null)
             return false;
-
+        if (isInvalidTeacher(teacherUpdate))
+            return false;
         return teacherRepository.update(teacherUpdate);
     }
 
+    // Metodo buscar por ID
     @Override
     public Teacher findById(Long teacherId) {
         if (teacherId == null)
@@ -44,11 +48,13 @@ public class TeacherServiceImpl implements TeacherService {
         return teacherRepository.findById(teacherId);
     }
 
+    // Metodo buscar todos
     @Override
     public List<Teacher> findAll() {
-        return List.of();
+        return teacherRepository.findAll();
     }
 
+    // Metodo verificar si existe por documento
     @Override
     public boolean existsByDocumentNumber(String documentNumber) {
         if (isBlank(documentNumber))
@@ -56,32 +62,34 @@ public class TeacherServiceImpl implements TeacherService {
         return teacherRepository.existsByDocumentNumber(documentNumber);
     }
 
+    // Metodo buscar por documento
     @Override
     public Teacher findByDocumentNumber(String documentNumber) {
         if (isBlank(documentNumber))
             return null;
         return teacherRepository.findByDocumentNumber(documentNumber);
-
     }
 
+    // Metodo contar
     @Override
     public int count() {
-        return 0;
+        return teacherRepository.count();
     }
 
-    // si está en blanco es inválido.
+    // Verifica si un Teacher es inválido
     private boolean isInvalidTeacher(Teacher teacher) {
         return teacher == null
-                || isBlank(teacher.getCode())
                 || isBlank(teacher.getDocumentNumber())
                 || isBlank(teacher.getFirstName())
                 || isBlank(teacher.getLastName())
-                || teacher.getStatus() == null;
+                || teacher.getStatus() == null
+                || teacher.getDocumentNumber().length() < 5
+                || teacher.getFirstName().length() < 2
+                || teacher.getLastName().length() < 2;
     }
 
+    // Verifica si un String es nulo o está en blanco
     private boolean isBlank(String value) {
         return value == null || value.isBlank();
     }
-
-
 }

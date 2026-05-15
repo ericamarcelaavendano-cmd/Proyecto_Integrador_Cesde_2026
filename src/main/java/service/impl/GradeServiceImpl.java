@@ -33,7 +33,9 @@ public class GradeServiceImpl implements GradeService {
 
     @Override
     public boolean update(Grade gradeUpdate) {
-        if (isInvalidGrade(gradeUpdate) || gradeUpdate.getGradeId() == null)
+        if (gradeUpdate == null || gradeUpdate.getGradeId() == null)
+            return false;
+        if (isInvalidGrade(gradeUpdate))
             return false;
         return gradeRepository.update(gradeUpdate);
     }
@@ -80,6 +82,8 @@ public class GradeServiceImpl implements GradeService {
         return grade == null
                 || grade.getStudentId() == null
                 || grade.getGroupSubjectId() == null
-                || grade.getFinalScore() == null;
+                || grade.getFinalScore() == null
+                || grade.getFinalScore() < 0
+                || grade.getFinalScore() > 10;
     }
 }

@@ -31,11 +31,12 @@ public class GroupServiceImpl implements GroupService {
 
     @Override
     public boolean update(Group groupUpdate) {
-        if (isInvalidGroup(groupUpdate) || groupUpdate.getGroupId() == null)
+        if (groupUpdate == null || groupUpdate.getGroupId() == null)
+            return false;
+        if (isInvalidGroup(groupUpdate))
             return false;
         return groupRepository.update(groupUpdate);
     }
-
     @Override
     public Group findByCode(String code) {
         if (isBlank(code))
@@ -85,11 +86,12 @@ public class GroupServiceImpl implements GroupService {
     private boolean isInvalidGroup(Group group) {
         return group == null
                 || isBlank(group.getCode())
+                || isBlank(group.getShift())
                 || group.getProgramId() == null
                 || group.getPeriodId() == null
-                || isBlank(group.getShift());
+                || group.getCode().length() < 2
+                || !group.getShift().matches("MAÑANA|TARDE|NOCHE");
     }
-
     // Verifica si un String es nulo o está en blanco
     private boolean isBlank(String value) {
         return value == null || value.isBlank();

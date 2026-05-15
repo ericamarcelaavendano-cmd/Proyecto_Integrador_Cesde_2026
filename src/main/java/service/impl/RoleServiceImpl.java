@@ -33,9 +33,11 @@ public class RoleServiceImpl implements RoleService {
     // Metodo actualizar
     @Override
     public boolean update(Role roleupdate) {
-        if (isInvalidRole(roleupdate) || roleupdate.getRoleId() == null)
-            return false;
-        return roleRepository.update(roleupdate);
+      if(roleupdate == null || roleupdate.getRoleId() == null)
+          return  false;
+      if (isInvalidRole(roleupdate))
+          return false;
+      return roleRepository.update(roleupdate);
     }
 
     // Metodo buscar por Id
@@ -77,9 +79,12 @@ public class RoleServiceImpl implements RoleService {
     // Metodo validar si el rol es invalido
     private boolean isInvalidRole(Role role) {
         return role == null
-                || role.getRoleId() == null
                 || isBlank(role.getName())
-                || isBlank(role.getDescription());
+                || isBlank(role.getDescription())
+                || role.getName().length() < 3
+                || role.getDescription().length() < 5
+                || !role.getName().matches("[a-zA-ZáéíóúÁÉÍÓÚ ]+");
+
     }
 
     // Metodo validar si el texto esta vacio

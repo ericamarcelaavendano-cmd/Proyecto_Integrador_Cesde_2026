@@ -36,8 +36,9 @@ public class GroupSubjectServiceImpl implements GroupSubjectService {
     // Metodo Actualizar
     @Override
     public boolean update(GroupSubject groupSubjectUpdate) {
-        if (isInvalidGroupSubject(groupSubjectUpdate) ||
-                groupSubjectUpdate.getGroupSubjectId() == null)
+        if (groupSubjectUpdate == null || groupSubjectUpdate.getGroupSubjectId() == null)
+            return false;
+        if (isInvalidGroupSubject(groupSubjectUpdate))
             return false;
         return groupSubjectRepository.update(groupSubjectUpdate);
     }

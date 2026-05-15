@@ -1,13 +1,16 @@
 package co.edu.cesde.g.models;
+
+import java.time.LocalDate;
+
 public class Student extends Person {
     private Long studentId;
-    private String birthDate;
+    private LocalDate birthDate;
 
     public Student() {
         super();
     }
 
-    public Student(Long userId, String code, String documentNumber, String firstName, String lastName, Boolean status, long studentId, String birthDate) {
+    public Student(Long userId, String code, String documentNumber, String firstName, String lastName, Boolean status, Long studentId, LocalDate birthDate) {
         super(userId, code, documentNumber, firstName, lastName, status);
         this.studentId = studentId;
         this.birthDate = birthDate;
@@ -26,11 +29,18 @@ public class Student extends Person {
         this.studentId = studentId;
     }
 
-    public String getBirthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(String birthDate) {
+    public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
+    }
+
+    @Override
+    public String toString() {
+        return "Student = " + super.toString() +
+                ", StudentId = " + studentId +
+                ", BirthDate = " + birthDate;
     }
 }

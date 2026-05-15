@@ -14,7 +14,7 @@ public class PeriodServiceImpl implements PeriodService {
         this.periodRepository = periodRepository;
     }
 
-    // Crea un nuevo periodo validando que no sea inválido y que no exista con el mismo código
+    // Metodo Crear
     @Override
     public Period create(Period period) {
         if (isInvalidPeriod(period) || periodRepository.existsByCode(period.getCode()))
@@ -22,7 +22,7 @@ public class PeriodServiceImpl implements PeriodService {
         return periodRepository.create(period);
     }
 
-    // Elimina un periodo por ID validando que no sea nulo
+    // Metodo Eliminar
     @Override
     public boolean delete(Long periodId) {
         if (periodId == null)
@@ -30,15 +30,17 @@ public class PeriodServiceImpl implements PeriodService {
         return periodRepository.delete(periodId);
     }
 
-    // Actualiza un periodo validando que no sea inválido y que tenga ID
+    // Metodo Actualizar
     @Override
     public boolean update(Period periodsUpdate) {
-        if (isInvalidPeriod(periodsUpdate) || periodsUpdate.getPeriodId() == null)
+        if (periodsUpdate == null || periodsUpdate.getPeriodId() == null)
+            return false;
+        if (isInvalidPeriod(periodsUpdate))
             return false;
         return periodRepository.update(periodsUpdate);
     }
-//
-    // Busca y retorna un periodo por su ID
+
+    // Metodo buscar por ID
     @Override
     public Period findById(Long periodId) {
         if (periodId == null)
@@ -46,13 +48,13 @@ public class PeriodServiceImpl implements PeriodService {
         return periodRepository.findById(periodId);
     }
 
-    // Retorna todos los periodos de la lista
+    // Metodo buscar todos
     @Override
     public List<Period> findAll() {
         return periodRepository.findAll();
     }
 
-    // Verifica si existe un periodo con ese código
+    // Metodo verificar si existe por código
     @Override
     public boolean existsByCode(String code) {
         if (isBlank(code))
@@ -60,7 +62,7 @@ public class PeriodServiceImpl implements PeriodService {
         return periodRepository.existsByCode(code);
     }
 
-    // Busca y retorna un periodo por su código
+    // Metodo buscar por código
     @Override
     public Period findByCode(String code) {
         if (isBlank(code))
@@ -68,7 +70,7 @@ public class PeriodServiceImpl implements PeriodService {
         return periodRepository.findByCode(code);
     }
 
-    // Retorna el total de periodos registrados
+    // Metodo contar
     @Override
     public int count() {
         return periodRepository.count();
@@ -79,7 +81,10 @@ public class PeriodServiceImpl implements PeriodService {
         return period == null
                 || isBlank(period.getCode())
                 || period.getStartDate() == null
-                || period.getEndDate() == null;
+                || period.getEndDate() == null
+                || period.getCode().length() < 2
+                || period.getEndDate().isBefore(period.getStartDate())
+                || period.getEndDate().isEqual(period.getStartDate());
     }
 
     // Verifica si un String es nulo o está en blanco

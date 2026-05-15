@@ -1,19 +1,20 @@
 package co.edu.cesde.g.models;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
 public class Period {
     private Long periodId;
     private String code;
-    private String startDate;
-    private String endDate;
+    private LocalDate startDate;
+    private LocalDate endDate;
 
     // Constructor vacío
     public Period() {
     }
 
     // Constructor con parámetros
-    public Period(Long periodId, String code, String startDate, String endDate) {
+    public Period(Long periodId, String code, LocalDate startDate, LocalDate endDate) {
         this.periodId = periodId;
         this.code = code;
         this.startDate = startDate;
@@ -37,19 +38,19 @@ public class Period {
         this.code = code;
     }
 
-    public String getStartDate() {
+    public LocalDate getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(String startDate) {
+    public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
 
-    public String getEndDate() {
+    public LocalDate getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(String endDate) {
+    public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
     }
 

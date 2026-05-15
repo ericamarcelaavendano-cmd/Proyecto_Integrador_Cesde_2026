@@ -17,9 +17,8 @@ public class UserRoleServiceImpl implements UserRoleService {
 
     @Override
     public UserRole create(UserRole userRole) {
-        if (userRole == null || userRole.getUserId() == null || userRole.getRoleId() == null) {
+        if (isInvalidUserRole(userRole))
             return null;
-        }
         if (existsByUserIdAndRoleId(userRole.getUserId(), userRole.getRoleId()))
             return null;
         return userRoleRepository.create(userRole);
@@ -56,5 +55,12 @@ public class UserRoleServiceImpl implements UserRoleService {
     @Override
     public int count() {
         return userRoleRepository.count();
+    }
+
+    // Verifica si un UserRole es inválido
+    private boolean isInvalidUserRole(UserRole userRole) {
+        return userRole == null
+                || userRole.getUserId() == null
+                || userRole.getRoleId() == null;
     }
 }

@@ -4,6 +4,8 @@ import co.edu.cesde.g.models.Student;
 import repository.StudentRepository;
 import service.StudentService;
 
+import java.time.LocalDate;
+
 import java.util.List;
 
 public class StudentServiceImpl implements StudentService {
@@ -75,14 +77,15 @@ public class StudentServiceImpl implements StudentService {
     // si está en blanco es inválido.
     private boolean isInvalidStudent(Student student) {
         return student == null
-                || isBlank(student.getCode())
                 || isBlank(student.getDocumentNumber())
                 || isBlank(student.getFirstName())
                 || isBlank(student.getLastName())
-                || isBlank(student.getBirthDate())
-                || student.getStatus() == null;
+                || student.getBirthDate() == null
+                || student.getDocumentNumber().length() < 5
+                || student.getFirstName().length() < 2
+                || student.getLastName().length() < 2
+                || student.getBirthDate().isAfter(LocalDate.now().minusYears(15));
     }
-
     private boolean isBlank(String value) {
         return value == null || value.isBlank();
     }
