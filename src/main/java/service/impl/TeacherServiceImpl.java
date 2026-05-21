@@ -88,7 +88,7 @@ public class TeacherServiceImpl implements TeacherService {
                 || teacher.getLastName().length() < 2;
     }
 
-    // Verifica si un String es nulo o está en blanco
+    // Verifica si un String es nulo o está en blanco y estar seguros
     private boolean isBlank(String value) {
         return value == null || value.isBlank();
     }
