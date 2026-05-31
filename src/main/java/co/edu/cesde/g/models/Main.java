@@ -12,8 +12,6 @@ public class Main {
 
 
         System.out.println("  SISTEMA DE REGISTRO ACADÉMICO");
-
-        // ========== ROLE ==========
         System.out.println("\n--- ROLES ---");
         RoleService roleService = new RoleServiceImpl(new RoleRepositoryInMemory());
 
@@ -132,7 +130,6 @@ public class Main {
         System.out.println("Creado: " + studentService.create(s1));
         System.out.println("Total estudiantes: " + studentService.count());
 
-        // ========== TEACHER ==========
         System.out.println("\n--- PROFESORES ---");
         TeacherService teacherService = new TeacherServiceImpl(new TeacherRepositoryInMemory());
 
@@ -160,7 +157,6 @@ public class Main {
         System.out.println("Creado: " + enrollmentService.create(e1));
         System.out.println("Total matriculas: " + enrollmentService.count());
 
-        // ========== GRADE ==========
         System.out.println("\n--- CALIFICACIONES ---");
         GradeService gradeService = new GradeServiceImpl(new GradeRepositoryInMemory());
 
